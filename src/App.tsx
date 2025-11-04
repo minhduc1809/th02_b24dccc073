@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import WeatherApp from "./components/Bai1";
+import StudentList from "./components/Bai2List";
+import StudentDetail from "./components/Bai2Detail";
+import NewsApp from "./components/Bai3";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav style={{ marginBottom: 20 }}>
+        <Link to="/">Bài 1</Link> |{" "}
+        <Link to="/students">Bài 2</Link> |{" "}
+        <Link to="/news">Bài 3</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<WeatherApp />} />
+        <Route path="/students" element={<StudentList />} />
+        <Route path="/students/:id" element={<StudentDetail />} />
+        <Route path="/news" element={<NewsApp />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

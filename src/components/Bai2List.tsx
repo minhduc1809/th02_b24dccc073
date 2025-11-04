@@ -19,7 +19,7 @@ const StudentList: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <h2>Danh sách sinh viên</h2>
       <ul>
         {students.map((s) => (

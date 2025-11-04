@@ -21,23 +21,28 @@ const NewsApp: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <h2>Tin tức vũ trụ</h2>
-      {news.map((item) => (
-        <div key={item.id} style={{ marginBottom: "20px" }}>
-          <img src={item.image_url} alt={item.title} width="300" />
-          <h3>{item.title}</h3>
-          <p>{item.summary}</p>
-          <a href={item.url} target="_blank" rel="noreferrer">
-            Đọc bài gốc
-          </a>
-          <p>
-            <small>Ngày đăng: {new Date(item.published_at).toLocaleDateString()}</small>
-          </p>
-        </div>
-      ))}
+      {news.map((item) => {
+        // Lấy tên domain từ URL
+        const siteName = new URL(item.url).hostname.replace("www.", "");
+        return (
+          <div key={item.id} className="news-item" style={{ marginBottom: "20px" }}>
+            <img src={item.image_url} alt={item.title} width="300" />
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+            <a href={item.url} target="_blank" rel="noreferrer">
+              Đọc thêm tại {siteName}
+            </a>
+            <p>
+              <small>Ngày đăng: {new Date(item.published_at).toLocaleDateString()}</small>
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default NewsApp;
+

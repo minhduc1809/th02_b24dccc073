@@ -25,7 +25,7 @@ const WeatherApp: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="page-container">
       <h2>Ứng dụng thời tiết</h2>
       <input
         type="text"

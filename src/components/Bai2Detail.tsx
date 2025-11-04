@@ -22,7 +22,7 @@ const StudentDetail: React.FC = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="page-container">
       <Link to="/students">⬅ Quay lại danh sách</Link>
       {student ? (
         <div>

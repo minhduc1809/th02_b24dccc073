@@ -24,7 +24,6 @@ const NewsApp: React.FC = () => {
     <div className="page-container">
       <h2>Tin tức vũ trụ</h2>
       {news.map((item) => {
-        // Lấy tên domain từ URL
         const siteName = new URL(item.url).hostname.replace("www.", "");
         return (
           <div key={item.id} className="news-item" style={{ marginBottom: "20px" }}>
